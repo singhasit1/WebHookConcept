@@ -74,8 +74,24 @@
     </dependency>
   </dependencies>
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
       <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.1</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <warSourceDirectory>WebContent</warSourceDirectory>
+            <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
+        </plugin>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
@@ -89,13 +105,22 @@
           <version>3.7.0</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.20.1</version>
+          <version>2.19.1</version>
+          <configuration>
+            <forkCount>1</forkCount>
+            <includes>
+              <include>F:\WebHookConcept\src\test\java\Stepdefintion\Runners</include>
+            </includes>
+            <testFailureIgnore>true</testFailureIgnore>
+            <skipTests>false</skipTests>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>net.masterthought</groupId>
           <artifactId>maven-cucumber-reporting</artifactId>
-          <version>2.8.0</version>
+          <version>3.0.0</version>
           <executions>
             <execution>
               <id>execution</id>
@@ -104,10 +129,9 @@
                 <goal>generate</goal>
               </goals>
               <configuration>
-                <projectName>cucumber-jvm-example</projectName>
-                <outputDirectory>${project.build.directory}/site/cucumber-report-html</outputDirectory>
+                <projectName>FrameworkAutomationImpliment</projectName>
+                <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
                 <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
-                <skippedFails>true</skippedFails>
               </configuration>
             </execution>
           </executions>
