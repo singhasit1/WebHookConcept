@@ -20,7 +20,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>lift</artifactId>
-      <version>3.5.1</version>
+      1123version>3.5.1</version>
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
