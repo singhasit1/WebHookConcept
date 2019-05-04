@@ -111,7 +111,7 @@
           <configuration>
             <forkCount>1</forkCount>
             <includes>
-              <include>F:\WebHookConcept\src\test\java\Stepdefintion\Runners</include>
+              <include>Stepdefintion.Runners</include>
             </includes>
             <testFailureIgnore>true</testFailureIgnore>
             <skipTests>false</skipTests>
